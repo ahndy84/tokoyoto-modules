@@ -3,7 +3,37 @@ jar { enabled = true }
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.querydsl:querydsl-jpa')
+    compile('com.querydsl:querydsl-apt')
+
     runtime('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compileOnly('org.projectlombok:lombok')
+}
+
+apply plugin: "com.ewerk.gradle.plugins.querydsl" // Plugin 적용
+
+// querydsl 적용
+def querydslSrcDir = 'src/main/generated' // QClass 생성 위치
+
+querydsl {
+    library = "com.querydsl:querydsl-apt"
+    jpa = true
+    querydslSourcesDir = querydslSrcDir
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', querydslSrcDir]
+        }
+    }
+}
+
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
 }

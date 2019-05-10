@@ -21,7 +21,9 @@ public class MemberRepositoryTest {
 
 	@Test
 	public void add() {
-		memberRepository.save(new Member("ahndy84", "ahndy84@gmail.com"));
+		Member member = new Member("ahndy84", "ahndy84@gmail.com");
+
+		memberRepository.save(member);
 		List<Member> memberList = memberRepository.findAll();
 		assertThat(memberList.size(), is(1));
 	}
