@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -20,7 +22,7 @@ public class MemberRepositoryTest {
 	@Test
 	public void add() {
 		memberRepository.save(new Member("ahndy84", "ahndy84@gmail.com"));
-		Member saved = memberRepository.findOne(1L);
-		assertThat(saved.getName(), is("ahndy84"));
+		List<Member> memberList = memberRepository.findAll();
+		assertThat(memberList.size(), is(1));
 	}
 }

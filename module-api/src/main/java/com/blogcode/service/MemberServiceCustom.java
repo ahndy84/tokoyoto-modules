@@ -2,17 +2,20 @@ package com.blogcode.service;
 
 import com.blogcode.domain.Member;
 import com.blogcode.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MemberServiceCustom {
-	private MemberRepositry memberRepositry;
+
+	@Autowired
+	private MemberRepository memberRepository;
 
 	public MemberServiceCustom(MemberRepository memberRepository) {
-		this.memberRepositry = memberRepository;
+		this.memberRepository = memberRepository;
 	}
 
 	public Long signup (Member member) {
-		return memberRepositry.save(member).getId();
+		return memberRepository.save(member).getId();
 	}
 }
