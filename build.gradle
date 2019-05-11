@@ -53,7 +53,7 @@ project(':module-api') {
     }
 }
 
-project(':module-web') {
+project(':module-batch') {
     dependencies {
         compile project(':module-common')
     }
