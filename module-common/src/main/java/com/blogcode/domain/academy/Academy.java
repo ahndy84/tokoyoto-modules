@@ -15,16 +15,15 @@ import javax.persistence.Id;
 @Entity
 public class Academy {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String address;
 
-	private String name;
-	private String address;
-
-	@Builder
-	public Academy(String name, String address) {
-		this.name = name;
-		this.address = address;
-	}
+    @Builder
+    public Academy(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
 }

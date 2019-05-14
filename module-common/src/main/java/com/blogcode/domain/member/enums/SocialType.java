@@ -1,4 +1,4 @@
-package com.blogcode.domain.enums;
+package com.blogcode.domain.member.enums;
 
 public enum SocialType {
     FACEBOOK("facebook"),

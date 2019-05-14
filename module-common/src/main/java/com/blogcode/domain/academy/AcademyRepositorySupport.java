@@ -3,10 +3,10 @@ package com.blogcode.domain.academy;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 import static com.blogcode.domain.academy.QAcademy.academy;
+
 
 @Repository
 public class AcademyRepositorySupport extends QuerydslRepositorySupport {

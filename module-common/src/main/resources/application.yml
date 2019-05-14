@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: local
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create # 테스트용 테이블 생성 설정
+      format_sql: true
+  batch:
+    job:
+      #enabled: false # 애플리케이션 구동시 컨텍스트 내의 모든 스프링 배치 작업 자동 실행여부(false로 해야 구동시 무조건 실행 안됨)
+      names: ${job.name:NONE}
+---
+spring:
+  profiles: local
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+---
+spring:
+  profiles: mysql
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://125.191.212.64:3307/community_test
+      username: ahndy84
+      password: samsung10!
+      driver-class-name: com.mysql.jdbc.Driver

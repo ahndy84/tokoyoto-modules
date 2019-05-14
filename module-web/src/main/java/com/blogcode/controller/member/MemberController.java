@@ -1,6 +1,6 @@
-package com.blogcode.member;
+package com.blogcode.controller.member;
 
-import com.blogcode.domain.Member;
+import com.blogcode.domain.member.Member;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

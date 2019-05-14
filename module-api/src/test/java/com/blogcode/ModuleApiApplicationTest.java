@@ -1,6 +1,6 @@
 package com.blogcode;
 
-import com.blogcode.domain.Member;
+import com.blogcode.domain.member.Member;
 import com.blogcode.service.MemberServiceCustom;
 import org.junit.Test;
 import org.junit.runner.RunWith;

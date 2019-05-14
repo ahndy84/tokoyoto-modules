@@ -1,7 +1,8 @@
 package com.blogcode.domain.member;
 
-import com.blogcode.domain.enums.Grade;
-import com.blogcode.domain.enums.UserStatus;
+import com.blogcode.domain.member.enums.Grade;
+import com.blogcode.domain.member.enums.SocialType;
+import com.blogcode.domain.member.enums.UserStatus;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,38 +22,44 @@ public class Member implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
+    private String email;
+
     private String name;
 
     private String password;
 
-    private String email;
-
-    private String principal;
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;
 
     @Enumerated(EnumType.STRING)
-    private UserStatus status;
+    private UserStatus status;  //회원상태
 
     @Enumerated(EnumType.STRING)
-    private Grade grade;
+    private Grade grade;  //회원등급
 
     private LocalDateTime createdDate;
 
     private LocalDateTime updatedDate;
 
     @Builder
-    public Member(String name, String password, String email, String principal, UserStatus status, Grade grade, LocalDateTime createdDate, LocalDateTime updatedDate) {
+    public Member(String email, String name, String password, SocialType socialType, UserStatus status, Grade grade, LocalDateTime createdDate, LocalDateTime updatedDate) {
+        this.email = email;
         this.name = name;
         this.password = password;
-        this.email = email;
-        this.principal = principal;
+        this.socialType = socialType;
         this.status = status;
         this.grade = grade;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
     }
 
-    public Member SetInactive() {
+    public Member setInactive() {
         status = UserStatus.INACTIVE;
         return this;
+    }
+
+    public Member (String name, String email){
+        this.name = name;
+        this.email = email;
     }
 }

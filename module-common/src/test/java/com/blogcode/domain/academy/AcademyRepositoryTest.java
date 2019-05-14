@@ -1,4 +1,4 @@
-package com.blogcode.com.blogcode.domain.academy;
+package com.blogcode.domain.academy;
 
 import com.blogcode.domain.academy.Academy;
 import com.blogcode.domain.academy.AcademyRepository;

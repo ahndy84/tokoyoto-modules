@@ -18,7 +18,7 @@ subprojects {
     apply plugin: 'eclipse'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
-    
+
     group = 'tokyoto.multi'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '1.8'
@@ -30,7 +30,8 @@ subprojects {
     dependencies {
         //compile('org.springframework.boot:spring-boot-starter-security')
         compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
-        
+        compileOnly('org.projectlombok:lombok')
+
         runtime('org.springframework.boot:spring-boot-devtools')
         runtime('mysql:mysql-connector-java')
         runtime('com.h2database:h2')
@@ -48,6 +49,12 @@ project(':module-common') {
 }
 
 project(':module-api') {
+    dependencies {
+        compile project(':module-common')
+    }
+}
+
+project(':module-web') {
     dependencies {
         compile project(':module-common')
     }

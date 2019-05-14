@@ -1,7 +1,7 @@
 package com.blogcode.service;
 
-import com.blogcode.domain.Member;
-import com.blogcode.repository.MemberRepository;
+import com.blogcode.domain.member.Member;
+import com.blogcode.domain.member.MemberRepository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,6 +19,6 @@ public class MemberServiceCustom {
 	}
 
 	public Long signup (Member member) {
-		return memberRepository.save(member).getId();
+		return memberRepository.save(member).getIdx();
 	}
 }
