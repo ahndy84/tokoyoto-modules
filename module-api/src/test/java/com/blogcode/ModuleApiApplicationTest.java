@@ -2,6 +2,7 @@ package com.blogcode;
 
 import com.blogcode.domain.member.Member;
 import com.blogcode.service.MemberServiceCustom;
+import com.blogcode.service.MemberServiceCustomTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

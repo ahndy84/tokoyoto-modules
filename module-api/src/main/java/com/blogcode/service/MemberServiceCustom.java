@@ -24,16 +24,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class MemberServiceCustom {
 
-
 	private final RestTemplate restTemplate;
 
 	@Value("${order.api.url}")
 	private String orderApiUrl;
 
+	@Autowired
 	private MemberRepository memberRepository;
 
-	public MemberServiceCustom(MemberRepository memberRepository, RestTemplateBuilder restTemplateBuilder) {
-		this.memberRepository = memberRepository;
+	public MemberServiceCustom(RestTemplateBuilder restTemplateBuilder) {
 		this.restTemplate = restTemplateBuilder.build();
 	}
 
