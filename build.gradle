@@ -28,23 +28,21 @@ subprojects {
     }
 
     dependencies {
-        //compile('org.springframework.boot:spring-boot-starter-security')
         compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
         compileOnly('org.projectlombok:lombok')
-
         runtime('org.springframework.boot:spring-boot-devtools')
         runtime('mysql:mysql-connector-java')
         runtime('com.h2database:h2')
-
         testCompile('org.springframework.boot:spring-boot-starter-test')
-        //testCompile('org.springframework.security:spring-security-test')
-        //compile group: 'org.javassist', name: 'javassist', version: '3.15.0-GA'
     }
 }
 
 project(':module-common') {
     dependencies {
         compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile('com.querydsl:querydsl-jpa')
+        compile('com.querydsl:querydsl-apt')
     }
 }
 
@@ -57,6 +55,11 @@ project(':module-api') {
 project(':module-web') {
     dependencies {
         compile project(':module-common')
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+        compile('org.springframework.boot:spring-boot-starter-security')
+        compile('org.springframework.security:spring-security-oauth2-client')
+        compile('org.springframework.security:spring-security-oauth2-jose')
     }
 }
 
